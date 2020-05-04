@@ -1,6 +1,6 @@
 package ch.noseryoung;
 
-public class Seat {
-    int number;
-    double price;
+public class Seat extends Theater {
+    private int number;
+    private double price;
 }

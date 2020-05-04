@@ -1,7 +1,7 @@
 package ch.noseryoung;
 
-public class Theater {
-    String theater_ID;
-    String seat_layour;
-    int total_seats;
+public class Theater extends Reservation{
+    private String theater_ID;
+    private String seat_layout;
+    private int total_seats;
 }

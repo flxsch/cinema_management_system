@@ -1,14 +1,14 @@
 package ch.noseryoung;
 
-import java.sql.Time;
+import java.sql.Date;
 
-public class Movie {
-    String name;
-    String genre;
-    String director;
-    Time play_time;
+public class Movie extends ShowTime{
+    private String name;
+    private String genre;
+    private String director;
+    private Date play_time;
 
-    public Movie(String name, String genre, String director, Time play_time) {
+    public Movie(String name, String genre, String director, Date play_time) {
         this.name = name;
         this.genre = genre;
         this.director = director;
@@ -39,11 +39,11 @@ public class Movie {
         this.director = director;
     }
 
-    public Time getPlay_time() {
+    public Date getPlay_time() {
         return play_time;
     }
 
-    public void setPlay_time(Time play_time) {
+    public void setPlay_time(Date play_time) {
         this.play_time = play_time;
     }
 }

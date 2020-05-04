@@ -1,8 +1,8 @@
 package ch.noseryoung;
 
-public class Reservation {
-    int booking_code;
-    Theater theater;
-    int seat_number;
-    double price;
+public class Reservation extends ShowTime{
+    private int booking_code;
+    private Theater theater;
+    private int seat_number;
+    private double price;
 }
