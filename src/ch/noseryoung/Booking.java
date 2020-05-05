@@ -10,7 +10,7 @@ import static ch.noseryoung.Theater.theatre;
 
 public class Booking {
 
-    public static void bookShow(Connection connection, ArrayList<Customer> customers, ArrayList<Seat> seats) {
+    public static void bookShow(Connection connection, ArrayList<Customer> customers, ArrayList<Seat> seats, HashMap<Customer, Seat> infos) {
 
         ArrayList<String> reservedSeats = new ArrayList<>();
 
@@ -81,7 +81,6 @@ public class Booking {
 
         } while (validShow == false);
 
-
         do {
 
             theatre();
@@ -133,14 +132,6 @@ public class Booking {
             System.out.println("Your booking is now canceled");
         } else {
             System.out.println("There is no booking with this Customer-ID");
-        }
-
-        for (Customer item : customers) {
-            System.out.print(item.printCostumer() + " ");
-        }
-
-        for (Seat item : seats) {
-            System.out.print(item.toString() + " ");
         }
     }
 }

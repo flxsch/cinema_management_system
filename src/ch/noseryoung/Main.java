@@ -16,10 +16,10 @@ public class Main {
         Connection connection = connect();
         ArrayList<Customer> customers = new ArrayList<Customer>();
         ArrayList<Seat> seats = new ArrayList<Seat>();
-        HashMap<Integer, Seat> infos = new HashMap<>();
+        HashMap<Customer, Seat> infos = new HashMap<>();
 
 
-        Menu(connection, customers, seats);
+        Menu(connection, customers, seats, infos);
     }
 
     public static Connection connect() {
@@ -38,7 +38,7 @@ public class Main {
         return connection;
     }
 
-    public static void Menu(Connection connection, ArrayList<Customer> customers, ArrayList<Seat> seats) {
+    public static void Menu(Connection connection, ArrayList<Customer> customers, ArrayList<Seat> seats, HashMap<Customer, Seat> infos) {
         int choice;
         do {
             while (true) {
@@ -70,12 +70,15 @@ public class Main {
                     addMovie(connection);
                     break;
                 case 3:
-                    bookShow(connection, customers, seats);
+                    bookShow(connection, customers, seats, infos);
                     break;
                 case 4:
-                    deleteMovie(connection);
+                    cancelBooking(customers, seats);
                     break;
                 case 5:
+                    deleteMovie(connection);
+                    break;
+                case 6:
                     exit(connection);
                     break;
                 default:
