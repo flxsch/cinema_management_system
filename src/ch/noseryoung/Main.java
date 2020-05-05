@@ -4,6 +4,7 @@ import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import static ch.noseryoung.Booking.bookShow;
 import static ch.noseryoung.Booking.cancelBooking;
@@ -28,7 +29,7 @@ public class Main {
         try {
             // connect to db
             connection =
-                    DriverManager.getConnection("jdbc:mariadb://192.168.182.128/Cinema", "root", "1234");
+                    DriverManager.getConnection("jdbc:mariadb://192.168.99.100/Cinema", "root", "mariadb");
 
         } catch (Exception e) {
             e.printStackTrace(System.err);
@@ -211,8 +212,6 @@ public class Main {
         }
         System.out.println("Added successfully");
     }
-
-    public static void bookShow() {}
 
     public static void deleteMovie(Connection connection) {
         System.out.println("Which movie do you want to delete?");

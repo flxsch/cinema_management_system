@@ -21,7 +21,7 @@ public class Booking {
 
         Random rnd = new Random();
         int costumerId = rnd.nextInt(10000);
-        System.out.print("Enter your name: \n");
+        System.out.print("Enter your prename: \n");
         String name = scanner.nextLine();
         System.out.print("Enter your surname: \n");
         String surname = scanner.nextLine();
@@ -36,8 +36,6 @@ public class Booking {
 
         Customer customer = new Customer(costumerId, name, surname, streetname, streetnumber, plz, cityname);
         customers.add(customer);
-
-        System.out.println(customers.getClass());
 
         listMovies(connection);
 
@@ -127,11 +125,12 @@ public class Booking {
         System.out.print("Enter the costumer id: ");
         int customerId = Integer.parseInt(scanner.nextLine());
 
-        if (customers.contains(customerId)) {
-
-            System.out.println("Your booking is now canceled");
-        } else {
-            System.out.println("There is no booking with this Customer-ID");
+        for (Customer item : customers) {
+            if (item.getId() == customerId) {
+                System.out.println("Your booking is now canceled");
+            } else {
+                System.out.println("There is no booking with this Customer-ID");
+            }
         }
     }
 }
