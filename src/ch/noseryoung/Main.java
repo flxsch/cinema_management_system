@@ -1,23 +1,25 @@
 package ch.noseryoung;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.HashMap;
 import java.util.Scanner;
-
 import static ch.noseryoung.Booking.bookShow;
-import static ch.noseryoung.Theater.theatre;
+import static ch.noseryoung.Booking.cancelBooking;
 
 public class Main {
+
     static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
         // write your code here
         Connection connection = connect();
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        ArrayList<Seat> seats = new ArrayList<Seat>();
+        HashMap<Integer, Seat> infos = new HashMap<>();
 
-        Menu(connection);
+
+        Menu(connection, customers, seats);
     }
 
     public static Connection connect() {
@@ -36,7 +38,7 @@ public class Main {
         return connection;
     }
 
-    public static void Menu(Connection connection) {
+    public static void Menu(Connection connection, ArrayList<Customer> customers, ArrayList<Seat> seats) {
         int choice;
         do {
             while (true) {
@@ -48,8 +50,10 @@ public class Main {
                                     + "  [1] List movies\n"
                                     + "  [2] Add movie\n"
                                     + "  [3] Book show\n"
-                                    + "  [4] Delete movie\n"
-                                    + "  [5] Exit\n");
+                                    + "  [4] Cancel Booking\n"
+                                    + "  [5] Delete movie\n"
+                                    + "  [6] Exit\n");
+
                     choice = Integer.parseInt(scan.nextLine());
                 } catch (NumberFormatException e) {
                     System.out.println("el hijo de puta");
@@ -66,7 +70,7 @@ public class Main {
                     addMovie(connection);
                     break;
                 case 3:
-                    bookShow(connection);
+                    bookShow(connection, customers, seats);
                     break;
                 case 4:
                     deleteMovie(connection);

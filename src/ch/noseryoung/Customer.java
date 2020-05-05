@@ -1,22 +1,24 @@
 package ch.noseryoung;
 
+import java.util.ArrayList;
+
 public class Customer {
 
     int id;
     String name;
     String surname;
     String street;
-    int streetNumber;
-    int PLZ;
+    String streetNumber;
+    String plz;
     String city;
 
-    public Customer(int id, String name, String surname, String street, int streetNumber, int PLZ, String city) {
+    public Customer(int id, String name, String surname, String street, String streetNumber, String plz, String city) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.street = street;
         this.streetNumber = streetNumber;
-        this.PLZ = PLZ;
+        this.plz = plz;
         this.city = city;
     }
 
@@ -52,20 +54,20 @@ public class Customer {
         this.street = street;
     }
 
-    public int getStreetNumber() {
+    public String getStreetNumber() {
         return streetNumber;
     }
 
-    public void setStreetNumber(int streetNumber) {
+    public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
     }
 
-    public int getPLZ() {
-        return PLZ;
+    public String getPlz() {
+        return plz;
     }
 
-    public void setPLZ(int PLZ) {
-        this.PLZ = PLZ;
+    public void setPlz(String plz) {
+        this.plz = plz;
     }
 
     public String getCity() {
@@ -77,19 +79,8 @@ public class Customer {
     }
 
     public String printCostumer() {
-        return surname + " " + name +"\n" + street + " " + streetNumber + "\n" + PLZ + " " + city;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", street='" + street + '\'' +
-                ", streetNumber=" + streetNumber +
-                ", PLZ=" + PLZ +
-                ", city='" + city + '\'' +
-                '}';
+        return surname + " " + name + "\n"
+                + street + " " + streetNumber + "\n"
+                + plz + " " + city;
     }
 }
